@@ -1,2 +1,2 @@
-# ProMISE2
-Probabilistic Model for Immiscible Separations and Extractions 2
+# ProMISE 2
+Probabilistic Model for Immiscible Separations and Extractions
