@@ -1,0 +1,18 @@
+﻿<Window x:Class="ProMISE2.PeaksInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="182" d:DesignWidth="161" VerticalAlignment="Bottom" HorizontalAlignment="Left" Title="Peaks info" SizeToContent="WidthAndHeight" Closing="Window_Closing" Topmost="False" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Icon="/ProMISE2;component/Resources/ProMISE.ico">
+    <Grid>
+		<Label Content="Label" Height="28" HorizontalAlignment="Left" Name="label5" VerticalAlignment="Top" />
+		<TextBlock Height="28" HorizontalAlignment="Left" Margin="91,5,0,0" Name="labelText" VerticalAlignment="Top" FontWeight="Bold" />
+		<Label Content="K" Height="28" HorizontalAlignment="Left" Margin="0,34,0,0" Name="label9" VerticalAlignment="Top" />
+		<TextBlock Height="28" HorizontalAlignment="Left" Margin="91,39,0,0" Name="kText" VerticalAlignment="Top" FontWeight="Bold" />
+		<Label Content="Selectivity" Height="28" HorizontalAlignment="Left" Margin="0,68,0,0" Name="label1" VerticalAlignment="Top" />
+		<TextBlock Height="28" HorizontalAlignment="Left" Margin="91,73,0,0" Name="selText" VerticalAlignment="Top" FontWeight="Bold" />
+		<Label Content="Resolution" Height="28" HorizontalAlignment="Left" Margin="0,102,0,0" Name="label2" VerticalAlignment="Top" />
+		<TextBlock Height="28" HorizontalAlignment="Left" Margin="91,107,0,0" Name="rsText" VerticalAlignment="Top" FontWeight="Bold" />
+	</Grid>
+</Window>

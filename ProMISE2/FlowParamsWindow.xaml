@@ -1,0 +1,51 @@
+﻿<Window x:Class="ProMISE2.FlowProps"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" xmlns:my="clr-namespace:ProMISE2" Title="Flow parameters" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Height="395" Width="384" Icon="/ProMISE2;component/Resources/ProMISE.ico">
+    <Grid>
+		<GroupBox Header="Phase flow" Height="181" HorizontalAlignment="Left" Name="flowGroup" VerticalAlignment="Top" Width="153">
+			<Grid>
+				<my:JogControl Header="Fu" HorizontalAlignment="Left" x:Name="fuJog" VerticalAlignment="Top" NotNegative="True" ValueChanged="fuJog_ValueChanged" ScalePower="10" LogScale="True" Margin="6,0,0,0" ToolTip="Upper phase flow rate" />
+				<my:JogControl Header="Fl" HorizontalAlignment="Left" Margin="74,0,0,0" x:Name="flJog" VerticalAlignment="Top" NotNegative="True" ValueChanged="flJog_ValueChanged" LogScale="True" ScalePower="10" ToolTip="Lower phase flow rate" />
+				<ComboBox Height="23" HorizontalAlignment="Left" Margin="37,130,0,0" Name="eeModeCombo" SelectedIndex="{Binding EEMode}" IsEnabled="{Binding AdvancedMode}" VerticalAlignment="Top" Width="100" ToolTip="Elution-Extrusion mode" />
+				<Label Content="EE" Height="28" HorizontalAlignment="Left" Margin="0,127,0,0" IsEnabled="{Binding AdvancedMode}" VerticalAlignment="Top" ToolTip="Elution-Extrusion mode" />
+				<Label Content="{Binding ShowFlowUnits}" Height="28" HorizontalAlignment="Left" Margin="6,96,0,0" VerticalAlignment="Top" />
+				<Label Content="{Binding ShowFlowUnits}" Height="28" HorizontalAlignment="Left" Margin="74,96,0,0" VerticalAlignment="Top" />
+			</Grid>
+		</GroupBox>
+		<GroupBox Header="Partial phase transfer" Height="181" HorizontalAlignment="Left" Margin="170,0,0,0" Name="ptransGroup" IsEnabled="{Binding PtransModeEnabled}" VerticalAlignment="Top" Width="150">
+			<Grid>
+				<my:JogControl Header="Upper" HorizontalAlignment="Left" LogScale="True" Margin="6,0,0,0" x:Name="ptransuJog" NotNegative="True" ScalePower="10" ValueChanged="ptransuJog_ValueChanged" VerticalAlignment="Top" ToolTip="Partial upper phase transfer" />
+				<my:JogControl Header="Lower" HorizontalAlignment="Left" LogScale="True" Margin="74,0,0,0" x:Name="ptranslJog" NotNegative="True" ScalePower="10" ValueChanged="ptranslJog_ValueChanged" VerticalAlignment="Top" ToolTip="Partial lower phase transfer" />
+				<CheckBox Content="Enabled" Height="16" HorizontalAlignment="Left" Margin="6,108,0,0" Name="ptransCheck" VerticalAlignment="Top" IsChecked="{Binding PtransMode}" Click="ptransCheck_Click" ToolTip="Enable partial phase transfer" />
+			</Grid>
+		</GroupBox>
+		<GroupBox Header="Conditions" Height="57" HorizontalAlignment="Left" Margin="0,181,0,0" Name="condGroup" VerticalAlignment="Top" Width="360">
+			<Grid>
+				<CheckBox Content="Limit system volumes" Height="16" HorizontalAlignment="Left" IsChecked="{Binding DoMaxIt}" Margin="6,9,0,0" Name="checkBox1" VerticalAlignment="Top" ToolTip="Limit elution to number of system volumes" />
+				<TextBox Height="23" HorizontalAlignment="Left" Margin="164,6,0,0" Name="maxItText" Text="{Binding MaxIt}" VerticalAlignment="Top" Width="50" IsEnabled="{Binding DoMaxIt}" ToolTip="Number of system volumes the elution is limited to" />
+			</Grid>
+		</GroupBox>
+		<GroupBox Header="Intermittent switching" Height="113" HorizontalAlignment="Left" Margin="0,240,0,0" Name="intgroup" VerticalAlignment="Top" Width="360" IsEnabled="{Binding IntEnabled}">
+			<Grid>
+				<ComboBox Height="23" HorizontalAlignment="Left" Margin="37,7,0,0" Name="intModeCombo" VerticalAlignment="Top" Width="100" SelectedValue="{Binding IntMode}" ToolTip="Switching mode" />
+				<Label Content="Mode" Height="28" HorizontalAlignment="Left" Margin="-4,4,0,0" VerticalAlignment="Top" ToolTip="Switching mode" />
+				<Label Content="Upper" Height="28" HorizontalAlignment="Left" Margin="-4,33,0,0" VerticalAlignment="Top" />
+				<Label Content="Lower" Height="28" HorizontalAlignment="Left" Margin="169,33,0,0" VerticalAlignment="Top" />
+				<ComboBox Height="23" HorizontalAlignment="Left" Margin="211,6,0,0" Name="intStartPhaseCombo" VerticalAlignment="Top" Width="100" SelectedValue="{Binding IntStartPhase}" ToolTip="Start phase" />
+				<Label Content="Start" Height="28" HorizontalAlignment="Left" Margin="169,4,0,0" VerticalAlignment="Top" ToolTip="Start phase" />
+				<ComboBox Height="23" HorizontalAlignment="Left" Margin="37,35,0,0" Name="intUpCompCombo" VerticalAlignment="Top" Width="100" SelectedIndex="{Binding IntUpComp}" Visibility="{Binding IntCompVisibility}" ToolTip="Upper phase switch component" />
+				<ComboBox Height="23" HorizontalAlignment="Left" Margin="211,35,0,0" Name="intLpCompCombo" VerticalAlignment="Top" Width="100" SelectedIndex="{Binding IntLpComp}" Visibility="{Binding IntCompVisibility}" ToolTip="Lower phase switch component" />
+				<TextBox Height="23" HorizontalAlignment="Left" Visibility="{Binding IntSwitchVisibility}" Margin="87,35,0,0" Name="intUpSwitchText" Text="{Binding IntUpSwitch}" VerticalAlignment="Top" Width="50" ToolTip="Upper phase switch amount" />
+                <Label Content="{Binding ShowIntUnits}" Height="28" HorizontalAlignment="Left" Margin="137,33,0,0" VerticalAlignment="Top" />
+				<TextBox Height="23" HorizontalAlignment="Left" Visibility="{Binding IntSwitchVisibility}" Margin="261,35,0,0" Name="intLpSwitchText" Text="{Binding IntLpSwitch}" VerticalAlignment="Top" Width="50" ToolTip="Lower phase switch amount" />
+                <Label Content="{Binding ShowIntUnits}" Height="28" HorizontalAlignment="Left" Margin="311,33,0,0" VerticalAlignment="Top" />
+				<Label Content="Max iterations" Height="28" HorizontalAlignment="Left" Margin="-4,62,0,0" VerticalAlignment="Top" ToolTip="Maximum number of switching iterations" />
+				<TextBox Height="23" HorizontalAlignment="Left" Margin="87,64,0,0" Name="IntMaxItText" Text="{Binding IntMaxIt}" VerticalAlignment="Top" Width="50" ToolTip="Maximum number of switching iterations" />
+				<CheckBox Content="Final elution" Height="16" HorizontalAlignment="Left" Margin="176,67,0,0" Name="intEluteCheck" VerticalAlignment="Top" IsChecked="{Binding IntFinalElute}" ToolTip="Elute column at the end" />
+			</Grid>
+		</GroupBox>
+	</Grid>
+</Window>

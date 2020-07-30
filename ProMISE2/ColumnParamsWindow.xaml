@@ -1,0 +1,42 @@
+﻿<Window x:Class="ProMISE2.ColumnProps"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" VerticalAlignment="Bottom" HorizontalAlignment="Left" Title="Column parameters" ResizeMode="NoResize" ShowInTaskbar="True" WindowStartupLocation="CenterOwner" WindowStyle="SingleBorderWindow" Topmost="False" Visibility="Visible" xmlns:my="clr-namespace:ProMISE2" Height="290" Width="388" Icon="/ProMISE2;component/Resources/ProMISE.ico">
+    <Grid>
+		<Label Content="Vc" Height="28" HorizontalAlignment="Left" Margin="28,19,0,0" VerticalAlignment="Top" ToolTip="System volume" />
+		<TextBox Height="23" HorizontalAlignment="Left" Margin="72,19,0,0" Name="vcText" Text="{Binding Vc}" VerticalAlignment="Top" Width="50" ToolTip="System volume" />
+        <Label Content="{Binding ShowVolUnits}" Height="28" HorizontalAlignment="Left" Margin="122,18,0,0" VerticalAlignment="Top" />
+        <Label Content="{Binding ShowVolUnits}" Height="28" HorizontalAlignment="Left" Margin="331,31,0,0" VerticalAlignment="Top" />
+        <Label Content="{Binding ShowVolUnits}" Height="28" HorizontalAlignment="Left" Margin="331,130,0,0" VerticalAlignment="Top" />
+		<GroupBox Header="Vdead" Height="114" HorizontalAlignment="Left" Margin="4,48,0,0" Name="vdeadGroup" VerticalAlignment="Top" Width="174">
+			<Grid>
+				<CheckBox Content="inlet" Height="16" HorizontalAlignment="Left" Margin="6,9,0,0" Name="vdeadInCheck" VerticalAlignment="Top" IsChecked="{Binding VdeadInEnabled}" ToolTip="Dead volume at flow inlet" />
+                <Label Content="{Binding ShowVolUnits}" Height="28" HorizontalAlignment="Left" Margin="112,4,0,0" VerticalAlignment="Top" />
+				<TextBox Height="23" HorizontalAlignment="Left" Margin="62,6,0,0" Name="vdeadInText" Text="{Binding VdeadIn}" VerticalAlignment="Top" Width="50" IsEnabled="{Binding VdeadInEnabled}" ToolTip="Dead volume at flow inlet" />
+				<CheckBox Content="outlet" Height="16" HorizontalAlignment="Left" Margin="6,38,0,0" Name="vdeadOutCheck" VerticalAlignment="Top" IsChecked="{Binding VdeadOutEnabled}" ToolTip="Dead volume at flow outlet" />
+                <Label Content="{Binding ShowVolUnits}" Height="28" HorizontalAlignment="Left" Margin="112,33,0,0" VerticalAlignment="Top" />
+				<TextBox Height="23" HorizontalAlignment="Left" Margin="62,35,0,0" Name="vdeadOutText" Text="{Binding VdeadOut}" VerticalAlignment="Top" Width="50" IsEnabled="{Binding VdeadOutEnabled}" ToolTip="Dead volume at flow outlet" />
+				<CheckBox Content="inject" Height="16" HorizontalAlignment="Left" Margin="6,67,0,0" Name="vdeadInjectCheck" VerticalAlignment="Top" IsChecked="{Binding VdeadInjectEnabled}" ToolTip="Dead volume of injection tubing" />
+                <Label Content="{Binding ShowVolUnits}" Height="28" HorizontalAlignment="Left" Margin="112,62,0,0" VerticalAlignment="Top" />
+				<TextBox Height="23" HorizontalAlignment="Left" Margin="62,64,0,0" Name="vdeadInjectText" Text="{Binding VdeadInject}" VerticalAlignment="Top" Width="50" IsEnabled="{Binding VdeadInjectEnabled}" ToolTip="Dead volume of injection tubing" />
+			</Grid>
+		</GroupBox>
+		<Label Content="Vtot" Height="28" HorizontalAlignment="Left" Margin="28,166,0,0" VerticalAlignment="Top" ToolTip="Total volume" />
+		<TextBox Height="23" HorizontalAlignment="Left" Margin="72,168,0,0" Name="vtotText" Text="{Binding vc2}" VerticalAlignment="Top" Width="50" IsReadOnly="True" ToolTip="Total volume" />
+        <Label Content="{Binding ShowVolUnits}" Height="28" HorizontalAlignment="Left" Margin="122,167,0,0" VerticalAlignment="Top" />
+        <GroupBox Header="Phase ratio" HorizontalAlignment="Left" Margin="178,0,0,0" Name="groupBox1" VerticalAlignment="Top">
+            <Grid>
+                <my:JogControl HorizontalAlignment="Left" x:Name="ufJog" VerticalAlignment="Top" Header="Uf [0..1]" MaxValue="1" ValueChanged="ufJog_ValueChanged" ToolTip="Upper phase ratio" />
+                <my:JogControl HorizontalAlignment="Left" Margin="0,99,0,0" x:Name="lfJog" VerticalAlignment="Top" Header="Lf [0..1]" MaxValue="1" ValueChanged="lfJog_ValueChanged" ToolTip="Lower phase ratio" />
+                <Label Content="X" Height="28" HorizontalAlignment="Left" Margin="-6,199,0,0" VerticalAlignment="Top" ToolTip="Relative phase ratio" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="13,201,0,0" Name="pxText" Text="{Binding px}" VerticalAlignment="Top" Width="49" IsReadOnly="True" ToolTip="Relative phase ratio" />
+            </Grid>
+        </GroupBox>
+		<Label Content="Vu" Height="28" HorizontalAlignment="Left" Margin="252,31,0,0" VerticalAlignment="Top" ToolTip="Upper phase volume" />
+		<TextBox Height="23" HorizontalAlignment="Left" Margin="281,33,0,0" Name="vuText" Text="{Binding vu}" VerticalAlignment="Top" Width="50" IsReadOnly="True" ToolTip="Upper phase volume" />
+		<Label Content="Vl" Height="28" HorizontalAlignment="Left" Margin="252,130,0,0" VerticalAlignment="Top" ToolTip="Lower phase volume" />
+		<TextBox Height="23" HorizontalAlignment="Left" Margin="281,132,0,0" Name="vlText" Text="{Binding vl}" VerticalAlignment="Top" Width="50" IsReadOnly="True" ToolTip="Lower phase volume" />
+	</Grid>
+</Window>

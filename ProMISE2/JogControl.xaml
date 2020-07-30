@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="ProMISE2.JogControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:local="clr-namespace:ProMISE2"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             MinHeight="85" MinWidth="62" IsEnabledChanged="UserControl_IsEnabledChanged" >
+	<UserControl.Resources>
+		<local:JogTextFormatter x:Key="TextFormatter" />
+	</UserControl.Resources>
+    <Grid>
+		<GroupBox Name="jogGroup">
+			<Grid>
+			<TextBox Name="jogText" VerticalAlignment="Top" MaxLength="6" >
+				<TextBox.Text>
+					<MultiBinding UpdateSourceTrigger="PropertyChanged" Converter="{StaticResource TextFormatter}" >
+						<Binding Path="Value" />
+						<Binding Path="IntMode" />
+					</MultiBinding>
+				</TextBox.Text>
+			</TextBox>
+				<Canvas Margin="0,28,0,0" Name="jogCanvas" SizeChanged="jogCanvas_SizeChanged" ClipToBounds="True" MinWidth="50" MinHeight="50">
+					<Ellipse Canvas.Left="0" Canvas.Top="0" Height="50" Name="jogScaleEllipse" Width="50" StrokeThickness="10">
+					<Ellipse.Stroke>
+						<LinearGradientBrush EndPoint="0.5,0.5" StartPoint="0.5,0" ColorInterpolationMode="ScRgbLinearInterpolation" Opacity="0.5">
+							<GradientStop Color="White" Offset="0" />
+							<GradientStop Color="Yellow" Offset="0.5" />
+							<GradientStop Color="Red" Offset="1" />
+							<GradientStop Offset="1" />
+						</LinearGradientBrush>
+					</Ellipse.Stroke>
+				</Ellipse>
+				<Ellipse Canvas.Left="0" Canvas.Top="0" Height="50" Name="jogOutlineEllipse" Stroke="Black" Width="50" />
+				<Ellipse Canvas.Left="21" Canvas.Top="1" Height="8" Name="jogGripEllipse" Stroke="Black" Width="8" Fill="#20000000" />
+				<Rectangle Height="50" Name="dummyRect" Fill="Transparent" Width="50" MouseDown="jog_MouseDown" MouseMove="jog_MouseMove" MouseUp="jog_MouseUp" MouseLeave="jog_MouseLeave" />
+			</Canvas>
+			</Grid>
+		</GroupBox>
+	</Grid>
+</UserControl>

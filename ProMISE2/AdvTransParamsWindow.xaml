@@ -1,0 +1,11 @@
+﻿<Window x:Class="ProMISE2.AdvTransProps"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" VerticalAlignment="Bottom" HorizontalAlignment="Left" Title="Model parameters" ResizeMode="NoResize" ShowInTaskbar="True" WindowStartupLocation="CenterOwner" WindowStyle="SingleBorderWindow" Topmost="False" Visibility="Visible" xmlns:my="clr-namespace:ProMISE2" Height="160" Width="157" Icon="/ProMISE2;component/Resources/ProMISE.ico">
+    <Grid>
+		<my:JogControl HorizontalAlignment="Left" x:Name="columnJog" VerticalAlignment="Top" Header="Steps" ValueChanged="columnJog_ValueChanged" Positive="True" LogScale="True" ScalePower="10" IntMode="True" MinValue="1" MaxValue="10000" Margin="0,16,0,0" ToolTip="System steps" />
+		<my:JogControl HorizontalAlignment="Left" Margin="68,0,0,0" x:Name="kaJog" VerticalAlignment="Top" Header="Mass\ntransfer" MaxValue="1" ValueChanged="kaJog_ValueChanged" MinValue="0" Positive="True" LogScale="True" ToolTip="Mass transfer coefficient" />
+	</Grid>
+</Window>

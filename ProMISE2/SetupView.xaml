@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="ProMISE2.SetupView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600" xmlns:my="clr-namespace:ProMISE2">
+	<Grid>
+		<ComboBox Height="23" Margin="45,0,0,0" Name="profileCombo" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" SelectedIndex="{Binding Profile}" SelectionChanged="profileCombo_SelectionChanged" />
+		<Label Content="Profile" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" />
+		<Label Content="Units" Height="28" HorizontalAlignment="Left" Margin="171,0,0,0" VerticalAlignment="Top" ToolTip="Default units for parameters" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="235,0,0,0" Name="massUnitsCombo" SelectedIndex="{Binding MassUnits}" VerticalAlignment="Top" Width="60" SelectionChanged="massUnitsCombo_SelectionChanged" ToolTip="Default units for mass values" />
+		<ComboBox Height="23" HorizontalAlignment="Left" Margin="295,0,0,0" Name="volUnitsCombo" SelectedIndex="{Binding VolUnits}" VerticalAlignment="Top" Width="60" SelectionChanged="volUnitsCombo_SelectionChanged" ToolTip="Default units for volume values" />
+		<ComboBox Height="23" HorizontalAlignment="Left" Margin="355,0,0,0" Name="timeUnitsCombo" SelectedIndex="{Binding TimeUnits}" VerticalAlignment="Top" Width="60" SelectionChanged="timeUnitsCombo_SelectionChanged" ToolTip="Default units for time values" />
+		<CheckBox Content="Advanced mode" Height="16" HorizontalAlignment="Left" Margin="430,5,0,0" Name="advancedCheck" IsChecked="{Binding AdvancedMode}" VerticalAlignment="Top" />
+		<ContentControl Margin="0,29,0,0" Name="setupContent" />
+	</Grid>
+</UserControl>
