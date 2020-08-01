@@ -3,7 +3,11 @@ Probabilistic Model for Immiscible Separations and Extractions
 
 For simulation prediction of different types of liquid-liquid chromatography.
 
-Windows binaries available at https://joostdefolter.info/
+Requirements
+- Microsoft Visual Studio
+- Optional: [Installer Projects extension](https://marketplace.visualstudio.com/search?target=VS&category=Tools&vsVersion=&subCategory=Setup%20%26%20Deployment&sortBy=Installs)
+
+Windows binaries available at [joostdefolter.info](https://joostdefolter.info/)
 
 
 # Paper
